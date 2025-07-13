@@ -1,0 +1,54 @@
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  application:
+    name: vending-machine
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  expiration-ms: 86400000  # 1 day = 24 hr * 60 min * 60 sec * 1000 ms
+
+
+# Default (local)
+server:
+  servlet:
+    context-path: /api/v1
+---
+spring:
+  config:
+    activate:
+      on-profile: default
+  datasource:
+    url: jdbc:mysql://localhost:3306/${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# Docker Profile
+---
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:mysql://mysql-db:3306/${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
