@@ -2,7 +2,8 @@
  ### Here is a description of what this app is about to do
 - REST API should be implemented consuming and producing “application/json” 
 - Implement product model with amountAvailable, cost, productName and sellerId fields 
-- Implement user model with username, password, deposit and role fields ● Implement CRUD for users (POST shouldn’t require authentication) 
+- Implement user model with username, password, deposit and role fields
+- Implement CRUD for users (POST shouldn’t require authentication) 
 - Implement CRUD for a product model (GET can be called by anyone, while POST, PUT and DELETE can be called only by the seller user who created the product) 
 - Implement /deposit endpoint so users with a “buyer” role can deposit 5, 10, 20, 50 and 100 cent coins into their vending machine account 
 - Implement /buy endpoint (accepts productId, amount of products) so users with a “buyer” role can buy products with the money they’ve deposited. API should return total they’ve spent, products they’ve purchased and their change if there’s any (in 5, 10, 20, 50 and 100 cent coins) 
