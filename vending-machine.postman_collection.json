@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"role\": \"SELLER\",\n    \"password\": \"123456\",\n    \"edge_case\" : true\n}",
+							"raw": "{\n    \"user_name\": \"Juhayna\",\n    \"role\": \"SELLER\",\n    \"password\": \"123456\",\n    \"ignored\" : true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,7 +24,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/vending-machine/user",
+							"raw": "http://localhost:8080/api/v1/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -33,8 +33,7 @@
 							"path": [
 								"api",
 								"v1",
-								"vending-machine",
-								"user"
+								"users"
 							]
 						}
 					},
@@ -124,8 +123,25 @@
 				{
 					"name": "getUserById",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/145",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"145"
+							]
+						}
 					},
 					"response": [
 						{
@@ -407,30 +423,25 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb2UiLCJ1c2VySWQiOjEsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc1MjE5MjA5OSwiZXhwIjoxNzUyMjc4NDk5fQ.7eB-SkAtw8LApfNqBu8mwVgRuJQKhpmUaBVNPoTWC7k",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJDb2NhQ29sYSIsInVzZXJJZCI6MTQzLCJyb2xlIjoiU0VMTEVSIiwiaWF0IjoxNzUyNDExNjkwLCJleHAiOjE3NTI0OTgwOTB9.vOFMe-00veeriRnW0zPM4o3SmyBckHzpgSpL3r2hIbk",
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"password\": \"12345\" \n}"
-						},
 						"url": {
-							"raw": "http://localhost:8080/vending-machine/api/v1/user/1",
+							"raw": "http://localhost:8080/api/v1/users/143",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"vending-machine",
 								"api",
 								"v1",
-								"user",
-								"1"
+								"users",
+								"143"
 							]
 						}
 					},
@@ -522,7 +533,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MSwicm9sZSI6IkJVWUVSIiwiaWF0IjoxNzUyNDEwNjAxLCJleHAiOjE3NTI0OTcwMDF9.ga8igjj-HHvpTu_Er_iH-kZ0TtVaYSD3nRODb6daV9o",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MTQ1LCJyb2xlIjoiQlVZRVIiLCJpYXQiOjE3NTI0MTUyOTEsImV4cCI6MTc1MjUwMTY5MX0.DPlWzHIprDUd0cDJGd9fA_zKXAu7SrOD2ygDbOHdTY4",
 									"type": "string"
 								}
 							]
@@ -530,7 +541,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users/1/deposit/100",
+							"raw": "http://localhost:8080/api/v1/users/145/deposit/50",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -540,9 +551,9 @@
 								"api",
 								"v1",
 								"users",
-								"1",
+								"145",
 								"deposit",
-								"100"
+								"50"
 							]
 						}
 					},
@@ -779,7 +790,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users/1/deposit/100",
+							"raw": "http://localhost:8080/api/v1/users/1/reset-deposit",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -790,8 +801,7 @@
 								"v1",
 								"users",
 								"1",
-								"deposit",
-								"100"
+								"reset-deposit"
 							]
 						}
 					},
@@ -883,7 +893,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"password\": 123456\n}",
+							"raw": "{\n    \"user_name\": \"Juhayna\",\n    \"password\": \"123456\"\n}   ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -891,14 +901,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/vending-machine/api/v1/auth",
+							"raw": "http://localhost:8080/api/v1/auth",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"vending-machine",
 								"api",
 								"v1",
 								"auth"
@@ -1181,20 +1190,38 @@
 				{
 					"name": "createProduct",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWhheW5hIiwidXNlcklkIjoxNDQsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTI0MTMxNzUsImV4cCI6MTc1MjQ5OTU3NX0.QlhjvyFfBhb7YV8uQMHlS5Z44ZZm5yTAEWfsdGMJmb0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Greek Yogurt\",\n    \"price\": 50,\n    \"quantity\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/vending-machine/api/v1/product",
+							"raw": "http://localhost:8080/api/v1/products",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"vending-machine",
 								"api",
 								"v1",
-								"product"
+								"products"
 							]
 						}
 					},
