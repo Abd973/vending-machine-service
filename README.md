@@ -18,9 +18,20 @@
 ## 3.  How to Run Vending Machine App with Docker
 
 ### 3.1 Prerequisites 
-- Docker and Docker Compose installed. (see [Notes](#notes) for versions recommendation)
-- Add the `.env` file in the root directory of the project, this will contain the DB and app security credentials. (you need to contact me)
 - Both `8080` and  `3306` ports are free as they will be consumed by the app.
+- Docker and Docker Compose installed. (see [Notes](#notes) for versions recommendation)
+- Create a `.env` file in the root directory of the project with the following variables ( contact me to get the values ):
+  ```
+  # Database Configuration
+  MYSQL_DATABASE=vending_machine
+  MYSQL_USER=your_DB_user
+  MYSQL_PASSWORD=your_secure_password_here
+  MYSQL_ROOT_PASSWORD=your_root_password_here
+  
+  # JWT Configuration
+  JWT_SECRET_KEY=your_jwt_secret_key_here_make_it_long_and_secure
+  ```
+
 
  ### 3.2 Build & Run
 I have added `Makefile` to make it easy for you to spin up the project.
@@ -32,10 +43,14 @@ I have added `Makefile` to make it easy for you to spin up the project.
 | make run   | This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services. |
 | make stop  | This should stop and remove containers.                                                                                                                |                                                                                                 
 | make reset | This will do `make stop` + will remove the cached DB volumes.                                                                                          |                             
+## API Testing
+- Download the [Postman Collection](vending-machine.postman_collection.json) to test the endpoints.
+- Import this file in postman and check the APIs out.
 
 ## Notes
-- Integration with the `DB` and `JWT` secret should be used through ```.env``` file since these are sensitive data and should not be committed to the repository.
 - The recommended versions of docker is `v24.x.x` and for docker-compose `v2.24.x+`
-
+- The application will be available at `http://localhost:8080/api/v1` after running `make run`
+- Default database will be created automatically with the schema from `src/main/resources/db/schema.sql`
+- JWT tokens expire after 24 hours by default
 
 ## Thanks
