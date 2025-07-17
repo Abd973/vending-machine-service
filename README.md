@@ -19,8 +19,8 @@
 
 ### 3.1 Prerequisites 
 - Docker and Docker Compose installed. (see [Notes](#notes) for versions recommendation)
-  - add the `.env` file in the root directory of the project, this will contain the DB and app security credentials. (you need to contact me)
-  - both `8080` and  `3306` ports are free as they will be consumed by the app.
+- Add the `.env` file in the root directory of the project, this will contain the DB and app security credentials. (you need to contact me)
+- Both `8080` and  `3306` ports are free as they will be consumed by the app.
 
  ### 3.2 Build & Run
 I have added `Makefile` to make it easy for you to spin up the project.
@@ -31,7 +31,7 @@ I have added `Makefile` to make it easy for you to spin up the project.
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | make run   | This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services. |
 | make stop  | This should stop and remove containers.                                                                                                                |                                                                                                 
-| make reset | This will do `make stop ` + will remove the cached DB volumes.                                                                                         |                             
+| make reset | This will do `make stop` + will remove the cached DB volumes.                                                                                          |                             
 
 ## Notes
 - Integration with the `DB` and `JWT` secret should be used through ```.env``` file since these are sensitive data and should not be committed to the repository.
