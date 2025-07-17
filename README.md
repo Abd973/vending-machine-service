@@ -23,7 +23,7 @@
   - both `8080` and  `3306` ports are free as they will be consumed by the app.
 
  ### 3.2 Build & Run
-     I have added MAKE file to make it easy for you to spin up the project.
+I have added `Makefile` to make it easy for you to spin up the project.
 
 #### All you need is to change the directory to the project root and run any of the following command based on your need: -
 
@@ -32,22 +32,6 @@
 | make run   | This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services. |
 | make stop  | This should stop and remove containers.                                                                                                                |                                                                                                 
 | make reset | This will do `make stop ` + will remove the cached DB volumes.                                                                                         |                             
-
-
-1. This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services.
-    ```bash
-     make run
-    ```
-
-2. This should stop and remove containers
-    ```bash
-    make stop 
-    ```
-
-3. This will do `make stop ` + will remove the cached DB volumes
-    ```bash
-    make reset 
-    ```
 
 ## Notes
 - Integration with the `DB` and `JWT` secret should be used through ```.env``` file since these are sensitive data and should not be committed to the repository.
