@@ -25,7 +25,15 @@
  ### 3.2 Build & Run
      I have added MAKE file to make it easy for you to spin up the project.
 
-#### All you need is to change the directory to the project root and run the following command: -
+#### All you need is to change the directory to the project root and run any of the following command based on your need: -
+
+| Command    | Description                                                                                                                                            |
+|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| make run   | This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services. |
+| make stop  | This should stop and remove containers.                                                                                                                |                                                                                                 
+| make reset | This will do `make stop ` + will remove the cached DB volumes.                                                                                         |                             
+
+
 1. This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services.
     ```bash
      make run
