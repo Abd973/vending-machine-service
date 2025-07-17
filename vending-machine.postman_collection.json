@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_name\": \"Juhayna\",\n    \"role\": \"SELLER\",\n    \"password\": \"123456\",\n    \"ignored\" : true\n}",
+							"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"role\": \"BUYER\",\n    \"password\": \"123456\",\n    \"ignored\" : true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,12 +24,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/users",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
@@ -39,7 +37,7 @@
 					},
 					"response": [
 						{
-							"name": "success",
+							"name": "seller - success",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -117,228 +115,15 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"role\": \"SELLER\",\n        \"deposit\": 0,\n        \"user_id\": 142,\n        \"user_name\": \"CocaCola\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"CREATED\"\n}"
-						}
-					]
-				},
-				{
-					"name": "getUserById",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/users/145",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"145"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "forbidden",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v1/users/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"users",
-										"2"
-									]
-								}
-							},
-							"status": "Forbidden",
-							"code": 403,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 13 Jul 2025 09:44:22 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this User.\",\n    \"status\": \"FORBIDDEN\"\n}"
 						},
 						{
-							"name": "success",
+							"name": "buyer - success",
 							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v1/users/142",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"users",
-										"142"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 13 Jul 2025 09:45:00 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"role\": \"SELLER\",\n        \"deposit\": 0,\n        \"user_id\": 142,\n        \"user_name\": \"CocaCola\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
-						}
-					]
-				},
-				{
-					"name": "updateUser",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb2UiLCJ1c2VySWQiOjEsInJvbGUiOiJCVVlFUiIsImlhdCI6MTc1MjE5MDE2NiwiZXhwIjoxNzUyMjc2NTY2fQ.fcvKxDMmyngoY5QF5t18EbxWGGRpin9W2wMr2AQPUF8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"password\": \"12345\" \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/vending-machine/api/v1/user/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"vending-machine",
-								"api",
-								"v1",
-								"user",
-								"1"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "updateUser (success)",
-							"originalRequest": {
-								"method": "PATCH",
+								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \n    \"password\": \"12345\" \n}",
+									"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"role\": \"BUYER\",\n    \"password\": \"123456\",\n    \"ignored\" : true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -346,17 +131,114 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/vending-machine/api/v1/user/1",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/users",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
-										"vending-machine",
 										"api",
 										"v1",
-										"user",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:19:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"role\": \"BUYER\",\n        \"deposit\": 0,\n        \"user_id\": 2,\n        \"user_name\": \"Jemmy\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"CREATED\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/users/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "seller - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/1",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
 										"1"
 									]
 								}
@@ -399,7 +281,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 10 Jul 2025 23:38:47 GMT"
+									"value": "Thu, 17 Jul 2025 21:42:00 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -411,7 +293,268 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"role\": \"BUYER\",\n        \"deposit\": 0,\n        \"user_id\": 1,\n        \"user_name\": \"Joe\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": {\n        \"role\": \"SELLER\",\n        \"deposit\": 0,\n        \"user_id\": 1,\n        \"user_name\": \"Juhayna\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+						},
+						{
+							"name": "forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/12",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"12"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 21:42:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this User.\",\n    \"status\": \"FORBIDDEN\"\n}"
+						},
+						{
+							"name": "buyer - success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:20:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"role\": \"BUYER\",\n        \"deposit\": 0,\n        \"user_id\": 2,\n        \"user_name\": \"Jemmy\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"123456\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/users/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "seller - success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"123456\" \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 21:33:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"role\": \"SELLER\",\n        \"deposit\": 0,\n        \"user_id\": 1,\n        \"user_name\": \"Juhayna\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
 						}
 					]
 				},
@@ -423,7 +566,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJDb2NhQ29sYSIsInVzZXJJZCI6MTQzLCJyb2xlIjoiU0VMTEVSIiwiaWF0IjoxNzUyNDExNjkwLCJleHAiOjE3NTI0OTgwOTB9.vOFMe-00veeriRnW0zPM4o3SmyBckHzpgSpL3r2hIbk",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -431,12 +574,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users/143",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/users/143",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
@@ -447,7 +588,7 @@
 					},
 					"response": [
 						{
-							"name": "deleteUser (success)",
+							"name": "success",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -456,17 +597,16 @@
 									"raw": "{\n    \"password\": \"12345\" \n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/vending-machine/api/v1/user/1",
+									"raw": "http://localhost:8080/api/v1/users/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"vending-machine",
 										"api",
 										"v1",
-										"user",
+										"users",
 										"1"
 									]
 								}
@@ -522,49 +662,14 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": \"User with ID 1 has been deleted successfully\",\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
-						}
-					]
-				},
-				{
-					"name": "addDeposit",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MTQ1LCJyb2xlIjoiQlVZRVIiLCJpYXQiOjE3NTI0MTUyOTEsImV4cCI6MTc1MjUwMTY5MX0.DPlWzHIprDUd0cDJGd9fA_zKXAu7SrOD2ygDbOHdTY4",
-									"type": "string"
-								}
-							]
 						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/api/v1/users/145/deposit/50",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"users",
-								"145",
-								"deposit",
-								"50"
-							]
-						}
-					},
-					"response": [
 						{
-							"name": "forbidden for seller type",
+							"name": "forbidden",
 							"originalRequest": {
-								"method": "POST",
+								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/users/142/deposit/5",
+									"raw": "http://localhost:8080/api/v1/users/143",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -574,84 +679,12 @@
 										"api",
 										"v1",
 										"users",
-										"142",
-										"deposit",
-										"5"
+										"143"
 									]
 								}
 							},
 							"status": "Forbidden",
 							"code": 403,
-							"_postman_previewlanguage": "plain",
-							"header": [
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "0"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 13 Jul 2025 09:45:29 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": null
-						},
-						{
-							"name": "invalid deposit",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/api/v1/users/1/deposit/3",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"users",
-										"1",
-										"deposit",
-										"3"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -688,35 +721,142 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 12:44:14 GMT"
+									"value": "Thu, 17 Jul 2025 21:34:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
 								},
 								{
 									"key": "Connection",
-									"value": "close"
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"3 is invalid deposit amount, only [50, 20, 100, 5, 10] are allowed\",\n    \"status\": \"INTERNAL_SERVER_ERROR\"\n}"
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this User.\",\n    \"status\": \"FORBIDDEN\"\n}"
+						}
+					]
+				},
+				{
+					"name": "addDeposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
 						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/users/2/deposit/100",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"2",
+								"deposit",
+								"100"
+							]
+						}
+					},
+					"response": [
 						{
-							"name": "success",
+							"name": "another user - forbidden",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/users/1/deposit/100",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/users/1/deposit/50",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
 										"users",
 										"1",
 										"deposit",
-										"100"
+										"50"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:21:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this User.\",\n    \"status\": \"FORBIDDEN\"\n}"
+						},
+						{
+							"name": "buyer - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/2/deposit/50",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"2",
+										"deposit",
+										"50"
 									]
 								}
 							},
@@ -758,7 +898,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 12:44:29 GMT"
+									"value": "Thu, 17 Jul 2025 22:21:51 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -770,7 +910,75 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"user\": {\n            \"role\": \"BUYER\",\n            \"deposit\": 100,\n            \"user_id\": 1,\n            \"user_name\": \"Jemmy\"\n        },\n        \"depositAdded\": 100\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"role\": \"BUYER\",\n            \"deposit\": 50,\n            \"user_id\": 2,\n            \"user_name\": \"Jemmy\"\n        },\n        \"depositAdded\": 50\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+						},
+						{
+							"name": "invalid amount",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/2/deposit/9",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"2",
+										"deposit",
+										"9"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:22:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"9 is invalid deposit amount, only [50, 20, 100, 5, 10] are allowed\",\n    \"status\": \"INTERNAL_SERVER_ERROR\"\n}"
 						}
 					]
 				},
@@ -782,7 +990,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MSwicm9sZSI6IkJVWUVSIiwiaWF0IjoxNzUyNDEwNjAxLCJleHAiOjE3NTI0OTcwMDF9.ga8igjj-HHvpTu_Er_iH-kZ0TtVaYSD3nRODb6daV9o",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -790,39 +998,106 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/users/1/reset-deposit",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/users/2/reset-deposit",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
 								"users",
-								"1",
+								"2",
 								"reset-deposit"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "success",
+							"name": "seller - forbidden",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/users/1/reset-deposit",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/users/1/reset-deposit",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
 										"users",
 										"1",
+										"reset-deposit"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:11:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, You ROLE does not match the required one to access this endpoint\",\n    \"status\": \"FORBIDDEN\"\n}"
+						},
+						{
+							"name": "buyer - same user - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/users/2/reset-deposit",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"2",
 										"reset-deposit"
 									]
 								}
@@ -865,7 +1140,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 12:45:21 GMT"
+									"value": "Thu, 17 Jul 2025 22:22:49 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -877,7 +1152,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": \"User with ID 1 has been reset successfully\",\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": \"User with ID 2 has been reset successfully\",\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
 						}
 					]
 				}
@@ -901,12 +1176,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/auth",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/auth",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
@@ -916,13 +1189,13 @@
 					},
 					"response": [
 						{
-							"name": "success",
+							"name": "buyer - success",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"user_name\": \"CocaCola\",\n    \"password\": \"123456\"\n}",
+									"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"password\": \"123456\"\n}   ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -930,12 +1203,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/auth",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/auth",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
@@ -981,7 +1252,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 09:43:36 GMT"
+									"value": "Thu, 17 Jul 2025 22:20:22 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -993,87 +1264,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"user\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 142,\n            \"user_name\": \"CocaCola\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJDb2NhQ29sYSIsInVzZXJJZCI6MTQyLCJyb2xlIjoiU0VMTEVSIiwiaWF0IjoxNzUyMzk5ODE2LCJleHAiOjE3NTI0ODYyMTZ9.3z9a8qC1NlvxOlEy507XlvNhAdAInQk4qTnfGw8ZALI\",\n        \"expireAt\": \"2025-07-14T09:43:36.296+00:00\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
-						},
-						{
-							"name": "success - buyer",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"user_name\": \"Jemmy\",\n    \"password\": \"123456\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/api/v1/auth",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"auth"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 13 Jul 2025 12:43:21 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"user\": {\n            \"role\": \"BUYER\",\n            \"deposit\": 0,\n            \"user_id\": 1,\n            \"user_name\": \"Jemmy\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MSwicm9sZSI6IkJVWUVSIiwiaWF0IjoxNzUyNDEwNjAxLCJleHAiOjE3NTI0OTcwMDF9.ga8igjj-HHvpTu_Er_iH-kZ0TtVaYSD3nRODb6daV9o\",\n        \"expireAt\": \"2025-07-14T12:43:21.649+00:00\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": {\n        \"user\": {\n            \"role\": \"BUYER\",\n            \"deposit\": 0,\n            \"user_id\": 2,\n            \"user_name\": \"Jemmy\"\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6Miwicm9sZSI6IkJVWUVSIiwiaWF0IjoxNzUyNzkwODIyLCJleHAiOjE3NTI4NzcyMjJ9.YAvS0oPWvMRwNQUCjpHV2MiHe3l8HWpT9vaBKpeaPoQ\",\n        \"expireAt\": \"2025-07-18T22:20:22.657+00:00\"\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
 						}
 					]
 				}
@@ -1090,7 +1281,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWhheW5hIiwidXNlcklkIjoxNDQsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTI0MTMxNzUsImV4cCI6MTc1MjQ5OTU3NX0.QlhjvyFfBhb7YV8uQMHlS5Z44ZZm5yTAEWfsdGMJmb0",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -1098,38 +1289,100 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products/17",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/products/2",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
 								"products",
-								"17"
+								"2"
 							]
 						}
 					},
 					"response": [
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/17",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"17"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:11:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Product with ID = 17 not found\",\n    \"status\": \"INTERNAL_SERVER_ERROR\"\n}"
+						},
 						{
 							"name": "success",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/api/v1/products/16",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/products/1",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
 										"products",
-										"16"
+										"1"
 									]
 								}
 							},
@@ -1171,7 +1424,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 13:25:02 GMT"
+									"value": "Thu, 17 Jul 2025 22:12:18 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -1183,7 +1436,73 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 16,\n        \"name\": \"Cola\",\n        \"price\": 15,\n        \"quantity\": 100,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 143,\n            \"user_name\": \"CocaCola\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Greek Yogurt\",\n        \"price\": 50,\n        \"quantity\": 200,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 1,\n            \"user_name\": \"Juhayna\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/1",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:18:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Product with ID = 1 not found\",\n    \"status\": \"INTERNAL_SERVER_ERROR\"\n}"
 						}
 					]
 				},
@@ -1195,7 +1514,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWhheW5hIiwidXNlcklkIjoxNDQsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTI0MTMxNzUsImV4cCI6MTc1MjQ5OTU3NX0.QlhjvyFfBhb7YV8uQMHlS5Z44ZZm5yTAEWfsdGMJmb0",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -1212,12 +1531,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/products",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
@@ -1227,7 +1544,7 @@
 					},
 					"response": [
 						{
-							"name": "forbidden for anonymous",
+							"name": "unAuth for anonymous",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -1303,13 +1620,13 @@
 							"body": null
 						},
 						{
-							"name": "success",
+							"name": "buyer - forbidden",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Cola\",\n    \"price\": 15,\n    \"quantity\": 100,\n    \"seller_id\": 142 \n}",
+									"raw": "{\n    \"name\": \"Greek Yogurt\",\n    \"price\": 50,\n    \"quantity\": 200\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1317,12 +1634,88 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/products",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/products",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:27:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, You ROLE does not match the required one to access this endpoint\",\n    \"status\": \"FORBIDDEN\"\n}"
+						},
+						{
+							"name": "seller - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Greek Yogurt\",\n    \"price\": 50,\n    \"quantity\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products",
+									"host": [
+										"{{baseURL}}"
+									],
 									"path": [
 										"api",
 										"v1",
@@ -1368,7 +1761,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 09:47:37 GMT"
+									"value": "Thu, 17 Jul 2025 22:30:35 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -1380,7 +1773,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 15,\n        \"name\": \"Cola\",\n        \"price\": 15,\n        \"quantity\": 100,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 142,\n            \"user_name\": \"CocaCola\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"CREATED\"\n}"
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Greek Yogurt\",\n        \"price\": 50,\n        \"quantity\": 200,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 1,\n            \"user_name\": \"Juhayna\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"CREATED\"\n}"
 						}
 					]
 				},
@@ -1392,7 +1785,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWhheW5hIiwidXNlcklkIjoxNDQsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTI0MTMxNzUsImV4cCI6MTc1MjQ5OTU3NX0.QlhjvyFfBhb7YV8uQMHlS5Z44ZZm5yTAEWfsdGMJmb0",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -1401,7 +1794,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 40,\n    \"quantity\": 300\n}",
+							"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 35,\n    \"quantity\": 300\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1409,23 +1802,21 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products/17",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/products/2",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
 								"products",
-								"17"
+								"2"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "success",
+							"name": "forbidden",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -1439,98 +1830,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/products/17",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/products/17",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
 										"products",
 										"17"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "X-XSS-Protection",
-									"value": "0"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, no-store, max-age=0, must-revalidate"
-								},
-								{
-									"key": "Pragma",
-									"value": "no-cache"
-								},
-								{
-									"key": "Expires",
-									"value": "0"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 13 Jul 2025 13:31:31 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 17,\n        \"name\": \"Greek Yogurt (New)\",\n        \"price\": 40,\n        \"quantity\": 300,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 144,\n            \"user_name\": \"Juhayna\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
-						},
-						{
-							"name": "Forbidden",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 40,\n    \"quantity\": 300\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/api/v1/products/16",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"products",
-										"16"
 									]
 								}
 							},
@@ -1572,7 +1880,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 13:31:57 GMT"
+									"value": "Thu, 17 Jul 2025 22:12:47 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -1585,6 +1893,85 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this Product.\",\n    \"status\": \"FORBIDDEN\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 40,\n    \"quantity\": 300\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/1",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:13:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Greek Yogurt (New)\",\n        \"price\": 40,\n        \"quantity\": 300,\n        \"seller\": {\n            \"role\": \"SELLER\",\n            \"deposit\": 0,\n            \"user_id\": 1,\n            \"user_name\": \"Juhayna\"\n        }\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
 						}
 					]
 				},
@@ -1596,7 +1983,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKdWhheW5hIiwidXNlcklkIjoxNDQsInJvbGUiOiJTRUxMRVIiLCJpYXQiOjE3NTI0MTMxNzUsImV4cCI6MTc1MjQ5OTU3NX0.QlhjvyFfBhb7YV8uQMHlS5Z44ZZm5yTAEWfsdGMJmb0",
+									"value": "{{jwt_token}}",
 									"type": "string"
 								}
 							]
@@ -1608,23 +1995,21 @@
 							"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 40,\n    \"quantity\": 300\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v1/products/17",
-							"protocol": "http",
+							"raw": "{{baseURL}}/api/v1/products/1",
 							"host": [
-								"localhost"
+								"{{baseURL}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"v1",
 								"products",
-								"17"
+								"1"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "forbidden",
+							"name": "forbidden - not owned product",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1698,72 +2083,26 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, you are not allowed to access this Product.\",\n    \"status\": \"FORBIDDEN\"\n}"
-						}
-					]
-				},
-				{
-					"name": "buyProduct",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKZW1teSIsInVzZXJJZCI6MTQ1LCJyb2xlIjoiQlVZRVIiLCJpYXQiOjE3NTI0MTUyOTEsImV4cCI6MTc1MjUwMTY5MX0.DPlWzHIprDUd0cDJGd9fA_zKXAu7SrOD2ygDbOHdTY4",
-									"type": "string"
-								}
-							]
 						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"productId\": 50,\n    \"requestedQuantity\": 300\n}"
-						},
-						"url": {
-							"raw": "http://localhost:8080/api/v1/products/17/buy",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"v1",
-								"products",
-								"17",
-								"buy"
-							]
-						}
-					},
-					"response": [
 						{
 							"name": "success",
 							"originalRequest": {
-								"method": "POST",
+								"method": "DELETE",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"productId\": 50,\n    \"requestedQuantity\": 2\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": "{\n    \"name\": \"Greek Yogurt (New)\",\n    \"price\": 40,\n    \"quantity\": 300\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/api/v1/products/18/buy",
-									"protocol": "http",
+									"raw": "{{baseURL}}/api/v1/products/1",
 									"host": [
-										"localhost"
+										"{{baseURL}}"
 									],
-									"port": "8080",
 									"path": [
 										"api",
 										"v1",
 										"products",
-										"18",
-										"buy"
+										"1"
 									]
 								}
 							},
@@ -1805,7 +2144,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 13 Jul 2025 14:17:24 GMT"
+									"value": "Thu, 17 Jul 2025 22:18:20 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -1817,11 +2156,139 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"totalCost\": 100,\n        \"soldProductInfoDto\": {\n            \"productName\": \"Greek Yogurt\",\n            \"soldQuantity\": 2,\n            \"unitPrice\": 50\n        },\n        \"changes\": []\n    },\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+							"body": "{\n    \"data\": \"Product with ID 1 has been deleted successfully\",\n    \"errorMessage\": null,\n    \"status\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "buyProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": 50,\n    \"requestedQuantity\": 300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/products/1/buy",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"1",
+								"buy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "seller - forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": 50,\n    \"requestedQuantity\": 300\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/1/buy",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"1",
+										"buy"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 22:16:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"errorMessage\": \"Access denied, You ROLE does not match the required one to access this endpoint\",\n    \"status\": \"FORBIDDEN\"\n}"
 						}
 					]
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:8080",
+			"type": "default"
+		},
+		{
+			"key": "jwt_token",
+			"value": "",
+			"type": "default"
 		}
 	]
 }

@@ -1,5 +1,7 @@
 package org.example.vendingmachine.api.v1.security;
 
+import org.example.vendingmachine.api.v1.exception.AccessDeniedException;
+import org.example.vendingmachine.api.v1.util.CustomAccessDeniedHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -46,15 +48,16 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/auth").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers("/users/deposit", "/users/*/reset-deposit").hasRole("BUYER")
+                        .requestMatchers("/users/*/deposit/*", "/users/*/reset-deposit").hasRole("BUYER")
                         .requestMatchers( "/users/**").authenticated()
-                        .requestMatchers(HttpMethod.GET, "/products").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/products/*").authenticated()
                         .requestMatchers(HttpMethod.POST, "/products/*/buy").hasRole("BUYER")
                         .requestMatchers("/products/**").hasRole("SELLER")
                         .anyRequest()
                         .authenticated()
                 )
                 .exceptionHandling(exception -> exception
+                        .accessDeniedHandler(new CustomAccessDeniedHandler())
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
