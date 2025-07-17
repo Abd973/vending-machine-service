@@ -1,47 +1,49 @@
 #  Vending Machine Service
- ## Requirements
+ ## 1. Requirements
 - REST API should be implemented consuming and producing “application/json”.
-- Implement product model with amountAvailable, cost, productName and sellerId fields.
-- Implement user model with username, password, deposit and role fields.
+- Implement a product model with amountAvailable, cost, productName and sellerId fields.
+- Implement a user model with username, password, deposit and role fields.
 - Implement CRUD for users (POST shouldn’t require authentication).
-- Implement CRUD for a product model (GET can be called by anyone, while POST, PUT and DELETE can be called only by the seller user who created the product).
+- Implement CRUD for a product model (GET can be called by anyone, while POST, PUT, and DELETE can be called only by the seller user who created the product).
 - Implement /deposit endpoint so users with a “buyer” role can deposit 5, 10, 20, 50 and 100 cent coins into their vending machine account. 
-- Implement /buy endpoint (accepts productId, amount of products) so users with a “buyer” role can buy products with the money they’ve deposited. API should return total they’ve spent, products they’ve purchased and their change if there’s any (in 5, 10, 20, 50 and 100 cent coins).
+- Implement /buy endpoint (accepts productId, amount of products) so users with a “buyer” role can buy products with the money they’ve deposited. API should return the total they’ve spent, products they’ve purchased and their change if there’s any (in 5, 10, 20, 50 and 100 cents coins).
 - Implement /reset endpoint so users with a “buyer” role can reset their deposit.
 
-## Tech stack and conclusion
+## 2. Tech stack and conclusion
 - Designed and implemented a secure, Dockerized Spring Boot backend service for a vending machine system with role-based access (buyer/seller), product purchase workflows, and JWT authentication. 
-- Used Spring Security, Spring Data JPA, and MySQL with schema auto-initialization via Docker Compose.
-- Built RESTful APIs with global exception handling and aspect-oriented ownership checking.
+- Utilized Spring Security, Spring Data JPA, and MySQL with schema auto-initialization via Docker Compose.
+- Built REST APIs with global exception handling and aspect-oriented ownership checking.
 - Developed comprehensive unit and integration tests using Mockito, MockMvc, and Spring Boot Test.
 
-#  Howt to Run Vending Machine App with Docker
-##  Prerequisites
-- Docker and Docker Compose installed.
-- add the *.env* file in the root directory of the project, this will contain the DB and app security credentials.
-- both **8080** and **3306** ports are free as they will be consumed by the app.
+## 3.  How to Run Vending Machine App with Docker
 
-## Build & Run
-I have added MAKE file to make it easy for you to spin up the project.
+### 3.1 Prerequisites 
+- Docker and Docker Compose installed. (see [Notes](#notes) for versions recommendation)
+  - add the `.env` file in the root directory of the project, this will contain the DB and app security credentials. (you need to contact me)
+  - both `8080` and  `3306` ports are free as they will be consumed by the app.
 
-#### All you need is to change directory to the project root and run the following command: -
-```bash
- make first_time
-```
+ ### 3.2 Build & Run
+     I have added MAKE file to make it easy for you to spin up the project.
 
-- This will build docker to install the necessary JVM version, build the project (without testcases) and start the services.
+#### All you need is to change the directory to the project root and run the following command: -
+1. This will build docker to install the necessary JVM version, use docker's maven version, build the project (without testcases) and start the services.
+    ```bash
+     make run
+    ```
 
-Afterward, you can run the project with the following command
-```bash
-make run 
-```
+2. This should stop and remove containers
+    ```bash
+    make stop 
+    ```
 
-## Additional commands and notes
-- make first_time (# Build the docker image and start the services for the first time, after that you can use make run)
-- make run (# Start the services, you can use this after the first time)
-- make docker_down  (# Stop the services and delete the container)
-- make docker_down_delete_db (# Just as docker_down but also delete the database)
-- integration with the DB and JWT secret should be used through .env file since these are sensitive data and should not be committed to the repository.
+3. This will do `make stop ` + will remove the cached DB volumes
+    ```bash
+    make reset 
+    ```
+
+## Notes
+- Integration with the `DB` and `JWT` secret should be used through ```.env``` file since these are sensitive data and should not be committed to the repository.
+- The recommended versions of docker is `v24.x.x` and for docker-compose `v2.24.x+`
 
 
 ## Thanks
