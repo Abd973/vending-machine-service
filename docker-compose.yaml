@@ -1,19 +1,19 @@
+version: "3.8"
 
 services:
   mysql-db:
     image: mysql:8
-    restart: unless-stopped
+    restart: "unless-stopped"  # ✅ string, not plain identifier
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
       timeout: 30s
       retries: 5
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./src/main/resources/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
@@ -33,7 +33,7 @@ services:
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
     ports:
       - "8080:8080"
-    restart: no
+    restart: "no"  # ✅ also string
 
 volumes:
   db_data:
